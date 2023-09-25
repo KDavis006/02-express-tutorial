@@ -40,4 +40,12 @@ const people = [
   { id: 5, name: "emma" },
 ];
 
-module.exports = { products, people };
+const tasks = [
+  { id: 1, name: "Homework", description: "Complete all not completed assignments.", done: false },
+  { id: 2, name: "Vacuuming", description: "Vacuum all rooms in the house.", done: false},
+  { id: 3, name: "Dinner", description: "Cook dinner for people.", done: false},
+  { id: 4, name: "Laundry", description: "Fold laundry.", done: false},
+  { id: 5, name: "Clean Car", description: "Remove all garbage and vacuum car.", done: false}
+]
+
+module.exports = { products, people, tasks };

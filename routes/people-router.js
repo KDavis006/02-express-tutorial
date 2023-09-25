@@ -22,6 +22,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   const {id} = req.params
   const {name} = req.body
+  const {done} = req.body
   const person = people.find((person) => person.id === Number(id))
   if(!person) {
     return express.json({success: false, data: []})
@@ -29,6 +30,7 @@ router.put('/:id', (req, res) => {
   const newPeople = people.map((person) =>{
     if (person.id === Number(id)) {
       person.name = name
+      person.done = done
     }
     return person
   })
