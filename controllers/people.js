@@ -8,14 +8,16 @@ const readPeople = (req, res) => {
 let length = tasks.length+1 
 // Post function for creating a new person
 const createPeople = (req, res) => {
- const {name} = req.body
+ const {name, description} = req.body
 
   if(!name) {
     return res.status(400).json({data:[], success: false, msg: 'Please enter a valid name'})
   }
     const person = {
     id: length++,
-    name: name
+    name: name,
+    description: description,
+    done: false,
   }
   tasks.push(person)
   res.status(201).json({success: true, data: [tasks]})
@@ -25,10 +27,9 @@ const createPeople = (req, res) => {
 
 const updatePeople = (req, res) => {
  const {id} = req.params
-  const {name} = req.body
-  const { done } = req.body
-  const {description} = req.body
+  const {name, done, description} = req.body
   const person = tasks.find((person) => person.id === Number(id))
+  
   if(!person) {
     return express.json({success: false, data: []})
   }
